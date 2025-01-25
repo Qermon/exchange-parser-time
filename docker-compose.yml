@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: django_admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: change
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  currency:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: currency_django:latest
+    container_name: currency_django
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - .:/currency
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+
+volumes:
+  postgres_data:

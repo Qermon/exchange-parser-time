@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Exchange</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'currency/css/style.css' %}">
+</head>
+<body>
+
+{% block content %}
+    <div class="form-container">
+        <h2 class="form-title">Currency Exchange</h2>
+        <form method="post" class="currency-form">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="submit-button">Exchange</button>
+        </form>
+        {% if converted %}
+            <p>Converted amount: {{ converted }}</p>
+        {% endif %}
+    </div>
+{% endblock %}
+
+</body>
+</html>

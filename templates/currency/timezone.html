@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Time</title>
+    <link rel="stylesheet" href="{% static 'currency/css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Check Time by Country</h1>
+        <form method="post" class="currency-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="submit-button">Show Time</button>
+        </form>
+
+        {% if current_time %}
+            <p>Current Time: {{ current_time }}</p>
+        {% else %}
+            <p class="error-message">Please select a country to see the time.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
