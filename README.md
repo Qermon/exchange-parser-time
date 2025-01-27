@@ -31,6 +31,6 @@ Asyncio,
 Docker
 
 # Set-Up
-git clone https://github.com/Qermon/exchange-parser-time.git or get from version control
-In the root folder(currency) you need to create a .env file and add SECRET_KEY with any code there Example: SECRET_KEY = 123
-docker-compose up --build
+1) git clone https://github.com/Qermon/exchange-parser-time.git or get from version control
+2) In the root folder(currency) you need to create a .env file and add SECRET_KEY with any code there Example: SECRET_KEY = 123
+3) docker-compose up --build
