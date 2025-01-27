@@ -5,6 +5,7 @@ Currency Exchange: A tool for converting one currency to another based on real-t
 Country Time: A tool for displaying the current time in different time zones worldwide.
 Additionally, there is a background service that fetches game data from Metacritic and stores it in an Excel sheet for offline use.
 
+
 # Features
 Currency Exchange
 
